@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       flash[:success] = "Account for #{@user.email} created"
       redirect_to dashboard_path
     else
-      flash.now[:error] = "Fix your submission!"
+      flash.now[:error] = "Invalid attributes"
       redirect_to new_user_path
     end
   end
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:id, :email, :password, :last_name, :first_name)
+    params.require(:user).permit(:id, :email, :password, :password_confirmation, :last_name, :first_name)
   end
 
 end
