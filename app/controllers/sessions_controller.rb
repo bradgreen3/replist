@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to dashboard_path
     else
+      flash.now[:error] = "Invalid account information"
       render :new
     end
   end

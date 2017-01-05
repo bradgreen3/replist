@@ -10,10 +10,25 @@ describe "when a user goes to login page" do
       fill_in "Email", with: "test@test.com"
       fill_in "Password", with: "pass"
 
-      click_button "Login"
+      click_on "Login"
 
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content("brad")
+    end
+  end
+  describe "and fills in wrong credentials" do
+    it "they cannot log in" do
+      user = User.create(email: "brad@test.com", password: "pass", first_name: "brad", last_name: "green")
+
+      visit "/login"
+
+      fill_in "Email", with: "brad@test.com"
+      fill_in "Password", with: "wrongpassword"
+
+      click_on "Login"
+
+      expect(current_path).to eq("/login")
+      expect(page).to have_content("Invalid account information")
     end
   end
 end
