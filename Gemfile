@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'faraday'
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -32,6 +33,7 @@ group :development, :test do
   gem 'rb-readline'
   gem 'coolline'
   gem 'faker'
+  gem 'shoulda-matchers'
 end
 
 group :development do

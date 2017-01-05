@@ -1,0 +1,40 @@
+<h2 class="account-header">Create Account</h2>
+
+<div class="form">
+  <%= form_for @user do |f| %>
+    <div class="text-input">
+      <%= f.label :email %>
+      <%= f.text_field :email, placeholder: "Email" %>
+      <span class="separator"> </span>
+    </div>
+
+    <div class="text-input">
+      <%= f.label :password %>
+      <%= f.password_field :password, placeholder: "Password" %>
+      <span class="separator"> </span>
+    </div>
+
+    <div class="text-input">
+      <%= f.label :confirm %>
+      <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Retype password" %>
+      <span class="separator"> </span>
+    </div>
+
+    <div class="text-input">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, placeholder: "First Name" %>
+      <span class="separator"> </span>
+    </div>
+
+    <div class="text-input">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, placeholder: "Last Name" %>
+      <span class="separator"> </span>
+    </div>
+
+    <div class="button-center">
+      <%= f.submit "Create Account", class: "update-btn" %>
+    </div>
+
+    <% end %>
+</div>
