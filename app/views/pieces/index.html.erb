@@ -1,0 +1,23 @@
+<h3> Repertoire </h3>
+
+<%= button_to 'New Piece', new_piece_path, method: :get, class: 'btn btn-default' %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Last</th>
+      <th>First</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.pieces.each do |piece| %>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= piece.composer_last %></td>
+      <td><%= piece.composer_first %></td>
+      <td><%= piece.title %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
