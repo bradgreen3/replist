@@ -9,11 +9,13 @@ describe "a logged in user" do
 
       stub_login_user
 
-      visit pieces_path
+      user = User.find_by(email: "brad@test.com")
+
+      visit user_pieces_path(user)
 
       click_button "New Piece"
 
-      expect(current_path).to eq(new_piece_path)
+      expect(current_path).to eq(new_user_piece_path(user))
 
       fill_in "Composer's Last", with: "Ibert"
       fill_in "Composer's First", with: "Jacques"
@@ -21,7 +23,7 @@ describe "a logged in user" do
 
       click_button "Add Piece"
 
-      expect(current_path).to eq(pieces_path)
+      expect(current_path).to eq(user_pieces_path(user))
       expect(page).to have_content("Ibert")
       expect(page).to have_content("Concertino da Camera")
       expect(page).to_not have_content("Paul Creston")

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resources :users
-
-  resources :pieces
+  resources :users do
+    resources :pieces
+  end
 
   get '/dashboard', to: 'dashboard#show'
 
