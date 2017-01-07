@@ -5,6 +5,7 @@ describe "a not logged in user" do
     visit new_user_path
 
     fill_in 'Email', with: "brad@test.com"
+    fill_in 'Username', with: "testuser"
     fill_in 'Password', with: "password"
     fill_in 'Retype password', with: "password"
     fill_in 'First Name', with: "Brad"

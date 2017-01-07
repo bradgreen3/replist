@@ -73,7 +73,7 @@ Shoulda::Matchers.configure do |config|
 end
 
 def stub_login_user
-  user = User.create(email: "brad@test.com", password: "pass", first_name: "Brad", last_name: "Green")
+  user = User.create(email: "brad@test.com", username: "testuser", password: "pass", first_name: "Brad", last_name: "Green")
   visit "/login"
   fill_in "Email", with: "brad@test.com"
   fill_in "Password", with: "pass"
