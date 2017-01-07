@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "Account for #{@user.email} created"
-      redirect_to dashboard_path
+      redirect_to user_dashboard_path(@user)
     else
       flash.now[:error] = "Invalid attributes"
       redirect_to new_user_path

@@ -1,8 +1,10 @@
 class PiecesController < ApplicationController
   def index
+    @user = User.find(params[:user_id])
   end
 
   def new
+    @user = User.find(params[:user_id])
     @piece = Piece.new
   end
 

@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users do
+    get '/dashboard', to: 'dashboard#show'
     resources :pieces
   end
 
-  get '/dashboard', to: 'dashboard#show'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

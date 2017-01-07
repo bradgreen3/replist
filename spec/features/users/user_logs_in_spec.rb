@@ -12,7 +12,7 @@ describe "when a user goes to login page" do
 
       click_on "Login"
 
-      expect(current_path).to eq(dashboard_path)
+      expect(current_path).to eq(user_dashboard_path(user))
       expect(page).to have_content("brad")
     end
   end

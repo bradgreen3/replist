@@ -1,6 +1,6 @@
 <h3> Repertoire </h3>
 
-<%= button_to 'New Piece', new_user_piece_path(current_user), method: :get, class: 'btn btn-default' %>
+<%= button_to 'New Piece', new_user_piece_path(@user), method: :get, class: 'btn btn-default' %>
 
 <table class="table table-hover">
   <thead>
@@ -11,9 +11,8 @@
     </tr>
   </thead>
   <tbody>
-    <% current_user.pieces.each do |piece| %>
+    <% @user.pieces.each do |piece| %>
     <tr>
-      <th scope="row">1</th>
       <td><%= piece.composer_last %></td>
       <td><%= piece.composer_first %></td>
       <td><%= piece.title %></td>
