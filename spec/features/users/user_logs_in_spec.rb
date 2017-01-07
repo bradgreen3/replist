@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "when a user goes to login page" do
   context "they can log in with their credentials" do
     it "and be redirected to their dashboard" do
-      user = User.create(email: "test@test.com", password: "pass", password_confirmation: "pass", first_name: "brad", last_name: "green")
+      user = User.create(email: "test@test.com", username: "testuser", password: "pass", password_confirmation: "pass", first_name: "brad", last_name: "green")
 
       visit "/login"
 
@@ -18,7 +18,7 @@ describe "when a user goes to login page" do
   end
   describe "and fills in wrong credentials" do
     it "they cannot log in" do
-      user = User.create(email: "brad@test.com", password: "pass", first_name: "brad", last_name: "green")
+      user = User.create(email: "brad@test.com", username: "testuser", password: "pass", first_name: "brad", last_name: "green")
 
       visit "/login"
 
