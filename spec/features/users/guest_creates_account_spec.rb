@@ -12,7 +12,9 @@ describe "a not logged in user" do
 
     click_button "Create Account"
 
-    expect(current_path).to eq(dashboard_path)
+    user = User.find_by(email: "brad@test.com")
+
+    expect(current_path).to eq(user_dashboard_path(user))
     expect(page).to have_content("Account for brad@test.com created")
   end
   it "is redirected if unable to create account" do

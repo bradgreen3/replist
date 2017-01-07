@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root 'home#index'
-  
-  resources :users
 
-  get '/dashboard', to: 'dashboard#show'
+  resources :users do
+    get '/dashboard', to: 'dashboard#show'
+    resources :pieces
+  end
+
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

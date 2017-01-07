@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105042043) do
+ActiveRecord::Schema.define(version: 20170106044613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pieces", force: :cascade do |t|
+    t.string   "composer_first"
+    t.string   "title"
+    t.integer  "user_id"
+    t.string   "soundcloud_track_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "composer_last"
+    t.index ["user_id"], name: "index_pieces_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -24,4 +35,5 @@ ActiveRecord::Schema.define(version: 20170105042043) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "pieces", "users"
 end

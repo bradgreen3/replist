@@ -1,0 +1,38 @@
+<h3> Repertoire </h3>
+
+<%= button_to 'New Piece', new_user_piece_path(@user), method: :get, class: 'btn btn-default' %>
+
+<table class="table table-hover table-condensed">
+  <thead>
+    <tr>
+      <% if current_user == @user %>
+      <th> </th>
+      <th> </th>
+      <% end %>
+      <th>Last</th>
+      <th>First</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.pieces.each do |piece| %>
+    <tr>
+      <% if current_user == @user %>
+      <td>
+      <%= link_to edit_user_piece_path(@user, piece) do %>
+        <i class="glyphicon glyphicon-cog"></i>
+      <% end %>
+      </td>
+      <td>
+        <%= link_to user_piece_path(@user, piece), method: :delete, data: {confirm: "Are you sure you want to delete?"} do %>
+        <i class="glyphicon glyphicon-remove-sign"></i>
+        <% end %>
+      </td>
+      <% end %>
+      <td><%= piece.composer_last %></td>
+      <td><%= piece.composer_first %></td>
+      <td><%= piece.title %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
