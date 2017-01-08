@@ -13,7 +13,8 @@ describe "when a user goes to login page" do
       click_on "Login"
 
       expect(current_path).to eq(user_dashboard_path(user))
-      expect(page).to have_content("brad")
+      
+      expect(page).to have_content("testuser")
     end
   end
   describe "and fills in wrong credentials" do
