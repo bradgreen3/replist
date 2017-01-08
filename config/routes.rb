@@ -2,12 +2,15 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users do
-    get '/dashboard', to: 'dashboard#show'
     resources :pieces
+    get '/dashboard', to: 'dashboard#show'
   end
 
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
+  get '/:slug' => 'dashboard#show'
+
 end
