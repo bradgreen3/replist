@@ -53,7 +53,7 @@ class PiecesController < ApplicationController
   private
 
   def piece_params
-    params.require(:piece).permit(:composer_last, :composer_first, :title)
+    params.require(:piece).permit(:composer_last, :composer_first, :title, :yt_link)
   end
 
 end
