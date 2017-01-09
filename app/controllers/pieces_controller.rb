@@ -1,6 +1,7 @@
 class PiecesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
+    @yt_users = YoutubeUser.all
   end
 
   def show

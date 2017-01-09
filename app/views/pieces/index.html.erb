@@ -1,6 +1,11 @@
 <h3> Repertoire </h3>
 
+<% if current_user %>
 <%= button_to 'New Piece', new_user_piece_path(@user), method: :get, class: 'btn btn-default' %>
+  <% if !@yt_users.exists?(user_id: current_user.id) %>
+    <%= link_to 'OAuth', '/auth/google_oauth2' %>
+  <% end %>
+<% end %>
 
 <table class="table table-hover table-condensed">
   <thead>
