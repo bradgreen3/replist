@@ -4,8 +4,8 @@ describe "a logged in user" do
   context "can create a new piece" do
     it "and see it displayed in their rep list" do
 
-      other_user = User.create(email: "daltman@uoregon.edu", password: "pass", first_name: "Dana", last_name: "Altman")
-      other_piece = Piece.create(composer_first: "Paul", composer_last: "Creston", title: "Sonata", user_id: other_user)
+      other_user = User.create(email: "daltman@uoregon.edu", username: "ballcoach", password: "pass", first_name: "Dana", last_name: "Altman")
+      other_piece = other_user.pieces.create(composer_first: "Paul", composer_last: "Creston", title: "Sonata")
 
       stub_login_user
 

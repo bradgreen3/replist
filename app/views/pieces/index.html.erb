@@ -16,7 +16,7 @@
   </thead>
   <tbody>
     <% @user.pieces.each do |piece| %>
-    <tr>
+    <tr class="clickable-row" id="<%=piece.title%>" data-href="/users/<%=@user.id%>/pieces/<%=piece.id%>">
       <% if current_user == @user %>
       <td>
       <%= link_to edit_user_piece_path(@user, piece) do %>
