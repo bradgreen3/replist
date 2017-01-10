@@ -1,1 +1,3 @@
-<h3> Dashboard of <%= @user.username %> </h3>
+<h3> <%= @user.username %> </h3>
+
+<%= link_to "Repertoire List", user_pieces_path(@user)%>
