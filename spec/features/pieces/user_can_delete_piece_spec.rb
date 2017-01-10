@@ -7,8 +7,8 @@ describe "a logged in user" do
 
     user = User.find_by(email: "brad@test.com")
 
-    user.pieces.create(composer_first: "Paul", composer_last: "Creston", title: "Sonata")
-    user.pieces.create(composer_first: "Paul", composer_last: "Creston", title: "Concerto")
+    user.pieces.create(composer_first: "Paul", composer_last: "Creston", title: "Sonata", yt_link: "")
+    user.pieces.create(composer_first: "Paul", composer_last: "Creston", title: "Concerto", yt_link: "")
 
     piece = Piece.find_by(title: "Sonata")
 

@@ -10,7 +10,6 @@ class YoutubeUploadsController < ApplicationController
     if uploaded_video.failed?
       flash[:warning] = 'Oops! There was a problem and your video was not uploaded'
     else
-      # @piece.assign_attributes(:yt_link => "https://www.youtube.com/watch?v=#{uploaded_video.id}", :yt_uid => "#{uploaded_video.id}")
       flash[:success] = 'Your video has been uploaded!'
     end
     redirect_to user_piece_path(current_user, @piece)

@@ -6,7 +6,7 @@ describe "a logged in user" do
     stub_login_user
 
     user = User.find_by(email: "brad@test.com")
-    user.pieces.create(composer_first: "Paul", composer_last: "Creston", title: "Sonata")
+    user.pieces.create(composer_first: "Paul", composer_last: "Creston", title: "Sonata", yt_link: "")
     piece = Piece.first
 
     visit user_pieces_path(user)
