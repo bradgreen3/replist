@@ -1,11 +1,13 @@
 class PiecesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
+    @yt_users = YoutubeUser.all
   end
 
   def show
     @user = User.find(params[:user_id])
     @piece = Piece.find(params[:id])
+    @yt_users = YoutubeUser.all
   end
 
   def new
@@ -52,7 +54,7 @@ class PiecesController < ApplicationController
   private
 
   def piece_params
-    params.require(:piece).permit(:composer_last, :composer_first, :title)
+    params.require(:piece).permit(:composer_last, :composer_first, :title, :yt_link)
   end
 
 end

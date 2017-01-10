@@ -1,6 +1,8 @@
 <h3> Repertoire </h3>
 
+<% if current_user %>
 <%= button_to 'New Piece', new_user_piece_path(@user), method: :get, class: 'btn btn-default' %>
+<% end %>
 
 <table class="table table-hover table-condensed">
   <thead>
