@@ -7,6 +7,7 @@ class PiecesController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @piece = Piece.find(params[:id])
+    @yt_users = YoutubeUser.all
   end
 
   def new

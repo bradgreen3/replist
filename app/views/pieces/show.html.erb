@@ -12,4 +12,19 @@
 
 <% end %>
 
+<!-- piece has no video added to it, user is on their own page, and they're oauthed -->
+<!-- move out into a helper method -->
+<% if @piece.yt_link == "" && @user == current_user && @yt_users.exists?(user_id: current_user.id) %>
+  <%= link_to 'Upload video', new_user_piece_youtube_upload_path(current_user.id, @piece.id) %>
+<% end %>
+
+<!-- piece has no video added to it, user is on their own page, and they're not oauthed -->
+<!-- move out into a helper method -->
+<% if @piece.yt_link == "" && @user == current_user && !@yt_users.exists?(user_id: current_user.id) %>
+<p> Authorize your account with YouTube to upload video </p>
+  <%= link_to 'Authorize', '/auth/google_oauth2' %>
+<% end %>
+
+</div>
+
 <div class="col-md-4"></div>

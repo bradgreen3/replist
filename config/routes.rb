@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users do
-    resources :pieces
     get '/dashboard', to: 'dashboard#show'
+    resources :pieces do
+      resources :youtube_uploads, only: [:new, :create]
+    end
   end
 
   get '/login', to: 'sessions#new'
