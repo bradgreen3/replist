@@ -1,5 +1,19 @@
-<h3> Show page for <%= @performance.title %> </h3>
+<h3 class=text-center> <%= @performance.title %> </h3>
 
-<% @performance.pieces.each do |piece| %>
-<%= link_to piece.title, user_piece_path %>
-<% end %>
+<div class="col-md-4"></div>
+
+<div class="col-md-4">
+  <div class="text-center"
+    <h5> Works performed: </h5>
+    <% @performance.pieces.each do |piece| %>
+      <p> <%= link_to piece.title, user_piece_path %> </p>
+    <% end %>
+
+    <% if @user == current_user %>
+      <%= button_to "Add Piece",
+      new_user_performance_performance_piece_path(current_user, @performance),
+      :class => "btn btn-success btn-sm", :method => :get %>
+    <% end %>
+  </div>
+</div>
+<div class="col-md-4"></div>

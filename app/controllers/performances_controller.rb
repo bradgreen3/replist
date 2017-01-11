@@ -5,6 +5,7 @@ class PerformancesController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:user_id])
     @performance = Performance.find(params[:id])
     @pieces = @performance.pieces
   end
