@@ -1,0 +1,10 @@
+<%= form_for [current_user, @piece], :url => "/users/#{current_user.id}/performances/#{params[:performance_id]}/performance_pieces", :html => {:method => :post} do |f| %>
+  <div class="field">
+    <%= f.label :pieces %><br>
+    <%= f.collection_select :title, Piece.where(user_id: current_user.id), :id, :title %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
