@@ -31,7 +31,6 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'vcr'
   gem 'webmock'
-  gem 'selenium-webdriver'
   gem 'pry'
   gem 'rb-readline'
   gem 'coolline'
