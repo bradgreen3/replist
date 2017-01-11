@@ -10,6 +10,9 @@
   src="https://www.youtube.com/embed/<%=@piece.yt_uid%>">
   </iframe>
 
+
+  <%= link_to "View Comments", youtube_comments_path(:id => @piece.yt_uid) %>
+
 <% end %>
 
 <!-- piece has no video added to it, user is on their own page, and they're oauthed -->

@@ -19,6 +19,7 @@ gem 'faraday'
 gem 'bootstrap-sass'
 gem 'yt'
 gem 'omniauth-google-oauth2'
+gem 'rails-html-sanitizer'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -30,7 +31,6 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'vcr'
   gem 'webmock'
-  gem 'selenium-webdriver'
   gem 'pry'
   gem 'rb-readline'
   gem 'coolline'
