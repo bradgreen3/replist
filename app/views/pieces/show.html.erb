@@ -25,13 +25,18 @@
 <!-- piece has no video added to it, user is on their own page, and they're NOT oauthed -->
 <!-- move out into a helper method -->
 <% if @piece.yt_link == "" && @user == current_user && !@yt_users.exists?(user_id: current_user.id) %>
-<p> Authorize your account with YouTube to upload video </p>
+  <p> Authorize your account with YouTube to upload video </p>
 <% end %>
 
 <!-- if there is a video present, user is logged in, and they ARE oauthed -->
 <% if @piece.yt_link != "" && current_user && @yt_users.exists?(user_id: current_user.id) %>
   <%= link_to 'Like Video', youtube_likes_path(:id => @piece.yt_uid, :vid_owner => @user.id, :piece => @piece.id), :method=> :post %>
   <%= link_to 'Dislike Video', youtube_dislikes_path(:id => @piece.yt_uid, :vid_owner => @user.id, :piece => @piece.id), :method=> :post %>
+<% end %>
+
+<!-- if there is a video present, user is logged in, and they're NOT oauthed -->
+<% if @piece.yt_link != "" && current_user && !@yt_users.exists?(user_id: current_user.id) %>
+  <p> Authorize your account with YouTube to like or dislike video </p>
 <% end %>
 
 </div>
