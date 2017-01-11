@@ -25,7 +25,6 @@
 <!-- move out into a helper method -->
 <% if @piece.yt_link == "" && @user == current_user && !@yt_users.exists?(user_id: current_user.id) %>
 <p> Authorize your account with YouTube to upload video </p>
-  <%= link_to 'Authorize', '/auth/google_oauth2' %>
 <% end %>
 
 </div>
