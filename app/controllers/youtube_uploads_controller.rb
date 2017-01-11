@@ -6,7 +6,8 @@ class YoutubeUploadsController < ApplicationController
 
   def create
     @piece = Piece.find(params[:piece_id])
-    video = YoutubeService.video(current_user, params)
+    @token = YoutubeUser.where(user_id: current_user.id).first.token
+    video = YoutubeService.upload_video(@token, params)
     if video.failed?
       flash[:warning] = 'Oops! There was a problem and your video was not uploaded'
     else

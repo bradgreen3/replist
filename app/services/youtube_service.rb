@@ -1,18 +1,15 @@
 class YoutubeService
 
-  def self.account(token, user_id)
+  def self.account(token)
     account = Yt::Account.new access_token: token
   end
 
-  def self.video(user, params)
-    token = YoutubeUser.where(user_id: user.id).first.token
+  def self.upload_video(token, params)
     account = Yt::Account.new access_token: token
 
-    file = params[:file].try(:tempfile).try(:to_path)
-    description = params[:description]
-    title = params[:title]
-
-    video = account.upload_video file, title: title, description: description
+    account.upload_video params[:file].try(:tempfile).try(:to_path),
+                         title: params[:title],
+                         description: params[:description]
   end
 
 end
