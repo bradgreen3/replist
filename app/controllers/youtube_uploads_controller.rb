@@ -6,10 +6,12 @@ class YoutubeUploadsController < ApplicationController
 
   def create
     @piece = Piece.find(params[:piece_id])
-    uploaded_video = @piece.upload_video(current_user, params)
-    if uploaded_video.failed?
+    @token = YoutubeUser.where(user_id: current_user.id).first.token
+    video = YoutubeService.upload_video(@token, params)
+    if video.failed?
       flash[:warning] = 'Oops! There was a problem and your video was not uploaded'
     else
+      @piece.update_attributes(:yt_link => "https://www.youtube.com/watch?v=#{video.id}", :yt_uid => video.id)
       flash[:success] = 'Your video has been uploaded!'
     end
     redirect_to user_piece_path(current_user, @piece)
