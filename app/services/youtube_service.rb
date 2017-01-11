@@ -12,4 +12,10 @@ class YoutubeService
                          description: params[:description]
   end
 
+  def self.get_comments(id)
+    video = Yt::Video.new(id: id)
+    video.comment_threads.take(10).map(&:text_display)
+  end
+
+
 end

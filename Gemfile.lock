@@ -280,6 +280,7 @@ DEPENDENCIES
   pry
   puma (~> 3.0)
   rails (~> 5.0.1)
+  rails-html-sanitizer
   rails_12factor
   rb-readline
   rspec-rails

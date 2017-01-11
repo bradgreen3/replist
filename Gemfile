@@ -19,6 +19,7 @@ gem 'faraday'
 gem 'bootstrap-sass'
 gem 'yt'
 gem 'omniauth-google-oauth2'
+gem 'rails-html-sanitizer'
 
 group :development, :test do
   gem 'byebug', platform: :mri

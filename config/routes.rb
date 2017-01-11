@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :youtube_comments, only: [:index]
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
