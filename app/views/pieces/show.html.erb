@@ -19,7 +19,12 @@
 <!-- move out into a helper method -->
 <!-- does current_user need to be passed if its already available in the other controller? -->
 <% if @piece.yt_link == "" && @user == current_user && @yt_users.exists?(user_id: current_user.id) %>
-  <%= link_to 'Upload video', new_user_piece_youtube_upload_path(current_user.id, @piece.id) %>
+  <%= link_to 'Upload Video', new_user_piece_youtube_upload_path(current_user.id, @piece.id) %>
+<% end %>
+
+<!-- if video exists, user is visiting their own page, and they're oauthed -->
+<% if @piece.yt_link != "" && @user == current_user && @yt_users.exists?(user_id: current_user.id) %>
+  <%= link_to 'Delete Video', youtube_deletes_path(:yt_id => @piece.yt_uid, :piece_id => @piece.id), :method=> :post %>
 <% end %>
 
 <!-- piece has no video added to it, user is on their own page, and they're NOT oauthed -->

@@ -35,5 +35,11 @@ class YoutubeService
     video.dislike
   end
 
+  def self.delete_video(id, token)
+    account = Yt::Account.new access_token: token
+
+    video = Yt::Video.new id: id, auth: account
+    video.delete
+  end
 
 end

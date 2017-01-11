@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :youtube_comments, only: [:index]
   resources :youtube_likes, only: [:create]
   resources :youtube_dislikes, only: [:create]
-
+  resources :youtube_deletes, only: [:create]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
