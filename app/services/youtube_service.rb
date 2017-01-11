@@ -17,5 +17,23 @@ class YoutubeService
     video.comment_threads.take(10).map(&:text_display)
   end
 
+  def self.like_video(id, token)
+    Yt.configuration.client_id = ENV['youtube_id']
+    Yt.configuration.client_secret = ENV['youtube_secret']
+    account = Yt::Account.new access_token: token
+
+    video = Yt::Video.new id: id, auth: account
+    video.like
+  end
+
+  def self.dislike_video(id, token)
+    Yt.configuration.client_id = ENV['youtube_id']
+    Yt.configuration.client_secret = ENV['youtube_secret']
+    account = Yt::Account.new access_token: token
+
+    video = Yt::Video.new id: id, auth: account
+    video.dislike
+  end
+
 
 end

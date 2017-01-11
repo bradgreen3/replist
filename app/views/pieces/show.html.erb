@@ -7,9 +7,9 @@
 <% if @piece.yt_link != "" %>
 
   <iframe width="420" height="315"
-  src="https://www.youtube.com/embed/<%=@piece.yt_uid%>">
+  src="https://www.youtube.com/embed/<%=@piece.yt_uid%>"
+  class="yt-player">
   </iframe>
-
 
   <%= link_to "View Comments", youtube_comments_path(:id => @piece.yt_uid) %>
 
@@ -17,14 +17,21 @@
 
 <!-- piece has no video added to it, user is on their own page, and they're oauthed -->
 <!-- move out into a helper method -->
+<!-- does current_user need to be passed if its already available in the other controller? -->
 <% if @piece.yt_link == "" && @user == current_user && @yt_users.exists?(user_id: current_user.id) %>
   <%= link_to 'Upload video', new_user_piece_youtube_upload_path(current_user.id, @piece.id) %>
 <% end %>
 
-<!-- piece has no video added to it, user is on their own page, and they're not oauthed -->
+<!-- piece has no video added to it, user is on their own page, and they're NOT oauthed -->
 <!-- move out into a helper method -->
 <% if @piece.yt_link == "" && @user == current_user && !@yt_users.exists?(user_id: current_user.id) %>
 <p> Authorize your account with YouTube to upload video </p>
+<% end %>
+
+<!-- if there is a video present, user is logged in, and they ARE oauthed -->
+<% if @piece.yt_link != "" && current_user && @yt_users.exists?(user_id: current_user.id) %>
+  <%= link_to 'Like Video', youtube_likes_path(:id => @piece.yt_uid, :vid_owner => @user.id, :piece => @piece.id), :method=> :post %>
+  <%= link_to 'Dislike Video', youtube_dislikes_path(:id => @piece.yt_uid, :vid_owner => @user.id, :piece => @piece.id), :method=> :post %>
 <% end %>
 
 </div>

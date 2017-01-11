@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :youtube_comments, only: [:index]
+  resources :youtube_likes, only: [:create]
+  resources :youtube_dislikes, only: [:create]
+
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
