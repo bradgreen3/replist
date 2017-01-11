@@ -1,5 +1,10 @@
 class YoutubeService
 
+  #def initialize(id=nil, token)
+  #create an initalize with id=nil default
+  #@account = Yt::Account.new access_token: token
+  #end
+
   def self.account(token)
     account = Yt::Account.new access_token: token
   end
@@ -18,6 +23,7 @@ class YoutubeService
   end
 
   def self.like_video(id, token)
+    #maybe remove these two lines?
     Yt.configuration.client_id = ENV['youtube_id']
     Yt.configuration.client_secret = ENV['youtube_secret']
     account = Yt::Account.new access_token: token
@@ -41,5 +47,9 @@ class YoutubeService
     video = Yt::Video.new id: id, auth: account
     video.delete
   end
+
+  # private
+  #
+  # attr_reader :account, :token
 
 end

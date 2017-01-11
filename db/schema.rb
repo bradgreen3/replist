@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170111023713) do
+ActiveRecord::Schema.define(version: 20170111161633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "performance_pieces", force: :cascade do |t|
+    t.integer  "performance_id"
+    t.integer  "piece_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["performance_id"], name: "index_performance_pieces_on_performance_id", using: :btree
+    t.index ["piece_id"], name: "index_performance_pieces_on_piece_id", using: :btree
+  end
+
+  create_table "performances", force: :cascade do |t|
+    t.string   "title"
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_performances_on_user_id", using: :btree
+  end
 
   create_table "pieces", force: :cascade do |t|
     t.string   "composer_first"
@@ -45,5 +63,8 @@ ActiveRecord::Schema.define(version: 20170111023713) do
     t.string   "account_number"
   end
 
+  add_foreign_key "performance_pieces", "performances"
+  add_foreign_key "performance_pieces", "pieces"
+  add_foreign_key "performances", "users"
   add_foreign_key "pieces", "users"
 end
