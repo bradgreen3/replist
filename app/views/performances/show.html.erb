@@ -1,0 +1,5 @@
+<h3> Show page for <%= @performance.title %> </h3>
+
+<% @performance.pieces.each do |piece| %>
+<%= link_to piece.title, user_piece_path %>
+<% end %>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users do
     get '/dashboard', to: 'dashboard#show'
+    resources :performances
     resources :pieces do
       resources :youtube_uploads, only: [:new, :create]
     end
