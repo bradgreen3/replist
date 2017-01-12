@@ -1,8 +1,16 @@
-<h3> <%= @user.username %> performances index page </h3>
+<h3 class="text-center"> <%= @user.username %>'s Performances </h3>
+
+<div class="col-md-6 col-md-push-3">
 
 <% @user.performances.each do |perf| %>
-<p> <%= link_to perf.title, user_performance_path(@user, perf) %> </p>
-<p> <%= perf.date %> </p>
+<div class="well well-lg">
+  <p> <%= link_to perf.title, user_performance_path(@user, perf) %> </p>
+  <p> <%= perf.date %> </p>
+</div>
 <% end %>
 
-<%= button_to "Add Performance", new_user_performance_path, :class => "btn btn-success btn-sm", :method => :get %>
+<div class="right-me">
+  <%= button_to "Add Performance", new_user_performance_path, :class => "btn btn-success btn-sm", :method => :get %>
+</div>
+
+</div>

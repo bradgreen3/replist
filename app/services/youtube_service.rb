@@ -25,18 +25,17 @@ class YoutubeService
   end
 
   def like_video
-    video = Yt::Video.new id: id, auth: account
     video.like
   end
 
   def dislike_video
-    video = Yt::Video.new id: id, auth: account
     video.dislike
   end
 
   def delete_video
-    video = Yt::Video.new id: id, auth: account
     video.delete
+  rescue
+    false
   end
 
   private

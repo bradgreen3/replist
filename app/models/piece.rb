@@ -8,6 +8,8 @@ class Piece < ApplicationRecord
 
   before_save :get_uid
 
+  validates_format_of :yt_link, :with => URI::regexp(%w(http https)), :allow_blank => true
+
   def get_uid
     if self.yt_link != ""
       video = Yt::Video.new url: self.yt_link

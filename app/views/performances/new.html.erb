@@ -1,23 +1,19 @@
-<h2 class="account-header">New Performance</h2>
+<h2 class="text-center">New Performance</h2>
+<br>
+<div class="col-md-4, col-md-push-4">
+<%= form_for [@user, @performance] do |f| %>
 
-<div class="form">
+  <%= f.label "Title" %>
+  <%= f.text_field :title, placeholder: "Title" %>
 
-  <%= form_for [@user, @performance] do |f| %>
-    <div class="text-input">
-      <%= f.text_field :title, placeholder: "Title" %>
-      <span class="separator"> </span>
-    </div>
+  <%= f.label "Date" %>
+  <%= f.date_field :date %>
 
-    <div class="text-input">
-      <%= f.label :date %>
-      <%= f.date_field :date %>
-      <span class="separator"> </span>
-    </div>
-
-    <div class="button-center">
-      <%= f.submit "Add Performance", class: "update-btn" %>
-    </div>
-
-    <% end %>
-
+  <div class="center-me">
+    <%= f.submit "Add Performance", class: "update-btn" %>
   </div>
+
+<% end %>
+
+</div>
+<div class="col-md-3.5"></div>

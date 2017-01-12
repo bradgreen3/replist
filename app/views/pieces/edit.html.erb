@@ -1,32 +1,22 @@
-<h2 class="account-header">Edit Piece</h2>
+<h2 class="text-center">New Piece</h2>
 
-<div class="form">
+<div class="col-md-4"></div>
+<div class="col-md-4" id: "shrink-me">
 
-  <%= form_for [@user, @piece] do |f| %>
-    <div class="text-input">
-      <%= f.text_field :composer_last, placeholder: "Composer's Last" %>
-      <span class="separator"> </span>
-    </div>
+<%= bootstrap_form_for [@user, @piece] do |f| %>
+  <%= f.text_field :composer_last, placeholder: "Composer's Last" %>
 
-    <div class="text-input">
-      <%= f.text_field :composer_first, placeholder: "Composer's First" %>
-      <span class="separator"> </span>
-    </div>
+  <%= f.text_field :composer_first, placeholder: "Composer's First" %>
 
-    <div class="text-input">
-      <%= f.text_field :title, placeholder: "Title of Piece" %>
-      <span class="separator"> </span>
-    </div>
-    
-    <div class="text-input">
-      <%= f.text_field :yt_link, placeholder: "YouTube URL" %>
-      <span class="separator"> </span>
-    </div>
+  <%= f.text_field :title, placeholder: "Title of Piece" %>
 
-    <div class="button-center">
-      <%= f.submit "Edit Piece", class: "update-btn" %>
-    </div>
+  <%= f.text_field :yt_link, placeholder: "YouTube URL" %>
 
-    <% end %>
+  <div class="center-me">
+    <%= f.submit "Edit Piece", class: "update-btn" %>
+  </div>
 
-</div>
+  <% end %>
+
+  </div>
+  <div class="col-md-4"></div>

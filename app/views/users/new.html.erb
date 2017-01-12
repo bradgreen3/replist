@@ -1,46 +1,27 @@
-<h2 class="account-header">Create Account</h2>
+<h2 class="text-center">Create New Account</h2>
 
-<div class="form">
-  <%= form_for @user do |f| %>
-    <div class="text-input">
-      <%= f.label :email %>
-      <%= f.text_field :email, placeholder: "Email" %>
-      <span class="separator"> </span>
-    </div>
+<div class="col-md-4"></div>
+<div class="col-md-4" id: "shrink-me">
+<%= bootstrap_form_for @user do |f| %>
 
-    <div class="text-input">
-      <%= f.label :username %>
-      <%= f.text_field :username, placeholder: "Username" %>
-      <span class="separator"> </span>
-    </div>
+  <%= f.alert_message "Please fix the errors below." %>
 
-    <div class="text-input">
-      <%= f.label :password %>
-      <%= f.password_field :password, placeholder: "Password" %>
-      <span class="separator"> </span>
-    </div>
+  <%= f.email_field :email, placeholder: "Email" %>
 
-    <div class="text-input">
-      <%= f.label :confirm %>
-      <%= f.password_field :password_confirmation, placeholder: "Retype password" %>
-      <span class="separator"> </span>
-    </div>
+  <%= f.text_field :username, placeholder: "Username" %>
 
-    <div class="text-input">
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name, placeholder: "First Name" %>
-      <span class="separator"> </span>
-    </div>
+  <%= f.password_field :password, placeholder: "Password" %>
 
-    <div class="text-input">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name, placeholder: "Last Name" %>
-      <span class="separator"> </span>
-    </div>
+  <%= f.password_field :password_confirmation, placeholder: "Retype password" %>
 
-    <div class="button-center">
-      <%= f.submit "Create Account", class: "update-btn" %>
-    </div>
+  <%= f.text_field :first_name, placeholder: "First Name" %>
 
-    <% end %>
+  <%= f.text_field :last_name, placeholder: "Last Name" %>
+
+  <div class="center-me">
+    <%= f.submit "Create Account", class: "btn btn-success" %>
+  </div>
+
+<% end %>
 </div>
+<div class="col-md-4"></div>
