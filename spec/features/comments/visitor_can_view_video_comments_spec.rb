@@ -8,7 +8,7 @@ describe "as a visitor" do
       id = "H7iJIp_C32A"
 
       visit user_piece_path(user, piece)
-      click_on("View Comments")
+      find(:xpath, "//a[@href='/youtube_comments?id=#{id}']").click
 
       expect(current_path).to eq(youtube_comments_path)
       expect(page).to have_content(YoutubeComments.all(id).first)

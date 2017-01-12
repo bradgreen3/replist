@@ -24,9 +24,10 @@ describe "a not logged in user" do
     fill_in 'Email', with: "green@test.com"
     fill_in 'First Name', with: "Brad"
     fill_in 'Last Name', with: "Green"
+    fill_in 'Username', with: "quackquack"
 
     click_button "Create Account"
 
-    expect(current_path).to eq(new_user_path)
+    expect(page).to have_content("can't be blank")
   end
 end

@@ -8,8 +8,8 @@ describe "a logged in authorized youtube user" do
       piece = user.pieces.create(composer_first: "jacques", composer_last: "ibert", title: "concertino da camera", yt_link: "https://www.youtube.com/watch?v=X2_26iqxTUg", yt_uid: "X2_26iqxTUg")
 
       visit user_piece_path(user, piece)
-      
-      click_on "Delete Video"
+
+      find(:xpath, "//a[@href='/youtube_deletes?piece_id=#{piece.id}&yt_id=X2_26iqxTUg']").click
 
       expect(page).to have_content("Deleted!")
       expect(current_path).to eq(user_piece_path(user, piece))
