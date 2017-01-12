@@ -1,8 +1,8 @@
-<div class="repheader">
+<div class="text-center">
   <h1>Repertoire List</h1>
 </div>
 
-<div class="col-md-8">
+<div class="col-md-8 col-md-push-2">
 
 <table class="table table-hover table-condensed">
   <thead>
@@ -44,9 +44,9 @@
     <% end %>
   </tbody>
 </table>
-
-<% if current_user == @user %>
-<%= button_to 'New Piece', new_user_piece_path(@user), method: :get, class: 'btn btn-success' %>
-<% end %>
-
+  <div class="new-piece-button">
+    <% if current_user == @user %>
+    <%= button_to 'New Piece', new_user_piece_path(@user), method: :get, class: 'btn btn-success' %>
+    <% end %>
+  </div>
 </div>

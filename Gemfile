@@ -20,6 +20,7 @@ gem 'bootstrap-sass'
 gem 'yt'
 gem 'omniauth-google-oauth2'
 gem 'rails-html-sanitizer'
+gem 'bootstrap_form'
 
 group :development, :test do
   gem 'byebug', platform: :mri

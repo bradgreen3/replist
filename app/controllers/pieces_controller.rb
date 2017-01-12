@@ -19,7 +19,7 @@ class PiecesController < ApplicationController
       flash[:success] = "'#{@piece.title}' Successfully Added"
       redirect_to user_pieces_path(current_user)
     else
-      flash[:warning] = "Please Fill In All Fields!"
+      flash[:danger] = "Invalid Attributes"
       redirect_to new_user_piece_path(current_user)
     end
   end
@@ -36,7 +36,7 @@ class PiecesController < ApplicationController
       flash[:success] = "Updated!"
       redirect_to user_pieces_path(@user)
     else
-      flash[:warning] = "Please Fill In All Fields!"
+      flash[:danger] = "Invalid Attributes"
       redirect_to edit_user_piece_path(@user, @piece)
     end
   end

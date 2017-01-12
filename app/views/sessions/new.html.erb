@@ -1,21 +1,21 @@
-<h2 class="account-header">Login</h2>
-
-<div class="form">
-  <%= form_tag "/login" do %>
-    <div class="text-input">
-      <%= label_tag :email %>
-      <%= text_field :email, nil, placeholder: "Email" %>
-      <span class="separator"> </span>
-    </div>
-
-    <div class="text-input">
-      <%= label_tag :password %>
-      <%= password_field_tag :password, nil, placeholder: "Password" %>
-      <span class="separator"> </span>
-    </div>
-
-    <div class="button-center">
-      <%= submit_tag "Login" %>
-    </div>
-  <% end %>
+<div id="bottom-border">
+<h2 class="text-center">Login To Your Account</h2>
 </div>
+
+<div class="col-md-3"></div>
+<div class="col-md-6">
+  <div class="login-form">
+  <%= bootstrap_form_tag url: "/login" do %>
+    <%= label_tag :email %>
+    <%= text_field :email, nil, placeholder: "Email" %>
+
+    <%= label_tag :password %>
+    <%= password_field_tag :password, nil, placeholder: "Password" %>
+
+    <div class="center-me">
+    <%= submit_tag "Login" %>
+    </div>
+
+  <% end %>
+  </div>
+<div class="col-md-3"></div>

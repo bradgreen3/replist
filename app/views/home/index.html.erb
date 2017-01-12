@@ -1,4 +1,18 @@
-<h3> Root page </h3>
+<body class="index" style="background-color : silver;">
 
-<p> home#index </p>
-<p> There will be fun info about the site here </p>
+<div class="container" id="jumbo">
+  <div class="jumbotron">
+    <h1>Welcome to RepList!</h1>
+    <p>Create and share a list of works you've performed, keep track of past
+      performances, and even upload YouTube videos to your performances!</p>
+  </div>
+
+   <% if !current_user %>
+    <%= button_to('Create Account', new_user_path, :class => 'btn btn-default', :id => 'create', :method => 'get') %>
+    <%= button_to('Log In', login_path, :class => 'btn btn-default', :id => 'login', :method => 'get') %>
+   <% else %>
+    <%= button_to('Directory', user_dashboard_path(current_user), :class => 'btn btn-default', :method => 'get') %>
+   <% end %>
+
+</div>
+</body>

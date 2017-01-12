@@ -1,19 +1,18 @@
 <h3 class=text-center> <%= @performance.title %> </h3>
 
-<div class="col-md-4"></div>
-
-<div class="col-md-4">
-  <div class="text-center"
-    <h5> Works performed: </h5>
-    <% @performance.pieces.each do |piece| %>
-      <p> <%= link_to piece.title, user_piece_path %> </p>
-    <% end %>
-
+<div class="col-md-4 col-md-push-4">
+  <% @performance.pieces.each do |piece| %>
+    <div class="well well-lg">
+      <p> <%= link_to piece.title, user_piece_path(current_user, piece) %> </p>
+      <p> <%= piece.composer_last %> </p>
+      <p> <%= piece.composer_first %> </p>
+    </div>
+  <% end %>
+  <div class="col-md-4 col-md-push-4">
     <% if @user == current_user %>
-      <%= button_to "Add Piece",
-      new_user_performance_performance_piece_path(current_user, @performance),
-      :class => "btn btn-success btn-sm", :method => :get %>
+    <%= button_to "Add Piece",
+    new_user_performance_performance_piece_path(current_user, @performance),
+    :class => "btn btn-success btn-sm", :method => :get %>
     <% end %>
   </div>
 </div>
-<div class="col-md-4"></div>
