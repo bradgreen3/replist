@@ -30,4 +30,32 @@ describe "a logged in user" do
 
     end
   end
+  context "cannot create a new piece with bad attributes" do
+    it "and sees a flash message" do
+
+      other_user = User.create(email: "daltman@uoregon.edu", username: "ballcoach", password: "pass", first_name: "Dana", last_name: "Altman")
+      other_piece = other_user.pieces.create(composer_first: "Paul", composer_last: "Creston", title: "Sonata", yt_link: "")
+
+      stub_login_user
+
+      user = User.find_by(email: "brad@test.com")
+
+      visit user_pieces_path(user)
+
+      click_button "New Piece"
+
+      expect(current_path).to eq(new_user_piece_path(user))
+
+      fill_in "Composer's Last", with: "Ibert"
+      fill_in "Composer's First", with: "Jacques"
+      fill_in "Title of Piece", with: "Concertino da Camera"
+      fill_in "YouTube URL", with: "notvalidurl"
+
+      click_button "Add Piece"
+
+      expect(page).to have_content("Invalid Attributes")
+      expect(current_path).to eq(new_user_piece_path(user))
+
+    end
+  end
 end
