@@ -18,8 +18,10 @@ class YoutubeService
   end
 
   def self.get_comments(id)
-    video = Yt::Video.new(id: id)
-    video.comment_threads.take(10).map(&:text_display)
+    Rails.cache.fetch(id, :expires => 60.minutes) do
+      video = Yt::Video.new(id: id)
+      video.comment_threads.take(10).map(&:text_display)
+    end
   end
 
   def self.like_video(id, token)

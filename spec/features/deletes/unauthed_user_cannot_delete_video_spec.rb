@@ -8,7 +8,7 @@ describe "a logged in unauthorized user" do
 
       visit user_piece_path(user, piece)
 
-      expect(page).to have_css(".yt-player")
+      expect(page).to have_css(".youtube-player")
       expect(page).to_not have_content("Delete Video")
     end
   end
