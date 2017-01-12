@@ -2,7 +2,7 @@ class YoutubeDislikesController < ApplicationController
 
   def create
     @token = YoutubeUser.where(user_id: current_user.id).first.token
-    dislike = YoutubeService.dislike_video(params[:id], @token)
+    dislike = YoutubeService.new(params[:id], @token).dislike_video
     if dislike == true
       flash[:success] = "Disliked!"
     else
