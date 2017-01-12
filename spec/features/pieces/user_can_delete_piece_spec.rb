@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "a logged in user" do
-  xit "can delete an existing piece" do
+  it "can delete an existing piece" do
 
     stub_login_user
 
@@ -14,9 +14,9 @@ describe "a logged in user" do
 
     visit user_pieces_path(user)
 
-    # page.accept_alert 'Are you sure you want to delete?' do
-    #   click_button('Search')
-    # end
+    within(".delete-#{piece.title}") do
+      find(:xpath, ".//a[@href='/users/#{user.id}/pieces/#{piece.id}']").click
+    end
 
     expect(current_path).to eq(user_pieces_path(user))
     expect(page).to have_content("Deleted!")

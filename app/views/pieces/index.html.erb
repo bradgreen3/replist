@@ -35,7 +35,7 @@
       <% end %>
       </td>
       <td class="delete-<%=piece.title%>">
-        <%= link_to user_piece_path(@user, piece), method: :delete, data: {confirm: "Are you sure you want to delete?"} do %>
+        <%= link_to user_piece_path(@user, piece), method: :delete do %>
         <i style="font-size:1.5em;" class="glyphicon glyphicon-remove-sign"></i>
         <% end %>
       </td>
