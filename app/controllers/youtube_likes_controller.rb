@@ -2,7 +2,7 @@ class YoutubeLikesController < ApplicationController
 
   def create
     @token = YoutubeUser.where(user_id: current_user.id).first.token
-    like = YoutubeService.like_video(params[:id], @token)
+    like = YoutubeService.new(params[:id], @token).like_video
     if like == true
       flash[:success] = "Liked!"
     else
