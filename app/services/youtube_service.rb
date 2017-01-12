@@ -18,7 +18,7 @@ class YoutubeService
   end
 
   def self.get_comments(id)
-    Rails.cache.fetch(id, :expires => 3.minutes) do
+    Rails.cache.fetch(id, :expires => 60.minutes) do
       video = Yt::Video.new(id: id)
       video.comment_threads.take(10).map(&:text_display)
     end
