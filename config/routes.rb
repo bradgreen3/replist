@@ -13,10 +13,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :youtube_comments, only: [:index]
-  resources :youtube_likes, only: [:create]
-  resources :youtube_dislikes, only: [:create]
-  resources :youtube_deletes, only: [:create]
+  namespace :youtube do
+    resources :comments, only: [:index]
+    resources :likes, only: [:create]
+    resources :dislikes, only: [:create]
+    resources :deletes, only: [:create]
+  end
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
