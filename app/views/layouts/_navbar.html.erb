@@ -13,6 +13,13 @@
       </a>
     </div>
 
+    <form class="navbar-form navbar-left">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Find Users">
+      </div>
+      <button type="submit" class="btn btn-default">Search</button>
+    </form>
+
     <ul class="nav navbar-nav navbar-right">
       <% if params[:user_id] && User.find(params[:user_id]) == current_user && !YoutubeUser.exists?(user_id: current_user.id) %>
         <li><%= link_to 'Authorize YouTube', '/auth/google_oauth2' %></li>
