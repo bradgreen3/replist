@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.where(email: params[:search])
+    #where columnname like
+  end
+
   def new
     @user = User.new
   end
@@ -18,6 +23,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
+    require "pry"; binding.pry
     params.require(:user).permit(:id, :email, :password, :password_confirmation, :last_name, :first_name, :username)
   end
 
