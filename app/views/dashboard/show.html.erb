@@ -4,7 +4,7 @@
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <img src="/replist.jpg" alt="replist">
-      <div class="caption">
+      <div class="caption" id="caption-height">
         <h3>Repertoire</h3>
         <p>A list of works performed by the artist</p>
         <p><%= button_to "Repertoire List", user_pieces_path(@user), method: :get, class:"btn btn-primary" %></p>
@@ -14,7 +14,7 @@
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <img src="/performances.jpg" alt="replist">
-      <div class="caption">
+      <div class="caption" id="caption-height">
         <h3>Performances</h3>
         <p>Selected performances with pieces performed</p>
         <p><%= button_to "Performances", user_performances_path(@user), method: :get, class:"btn btn-primary" %></p>
