@@ -1,24 +1,28 @@
-<h1 class="text-center"> <%= @user.username %> </h3>
+<div class="show">
+
+<h1 class="text-center" id="dashboard-header"> <%= @user.username %> </h3>
 
 <div class="row">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <img src="/replist.jpg" alt="replist">
-      <div class="caption" id="caption-height">
+      <div class="caption">
         <h3>Repertoire</h3>
         <p>A list of works performed by the artist</p>
-        <p><%= button_to "Repertoire List", user_pieces_path(@user), method: :get, class:"btn btn-primary" %></p>
+        <p><%= button_to "Repertoire List", user_pieces_path(@user), method: :get, class:"btn btn-primary add-bottom" %></p>
       </div>
     </div>
   </div>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <img src="/performances.jpg" alt="replist">
-      <div class="caption" id="caption-height">
+      <div class="caption">
         <h3>Performances</h3>
         <p>Selected performances with pieces performed</p>
         <p><%= button_to "Performances", user_performances_path(@user), method: :get, class:"btn btn-primary" %></p>
       </div>
     </div>
   </div>
+</div>
+
 </div>
