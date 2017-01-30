@@ -1,4 +1,4 @@
-class YoutubeDeletesController < ApplicationController
+class Youtube::DeletesController < ApplicationController
 
   def create
     @token = YoutubeUser.where(user_id: current_user.id).first.token

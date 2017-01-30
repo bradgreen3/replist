@@ -1,4 +1,4 @@
-class YoutubeCommentsController < ApplicationController
+class Youtube::CommentsController < ApplicationController
 
   def index
     @id = params[:id]
