@@ -132,7 +132,11 @@
 }
 
 body {
-  background-image: url("https://pixabay.com/get/ec30b90b2df61c22d9584518a3484296e27fe4d104b0154990f7c77da6eab7/piano-558452_1920.jpg");
+  // background-image: url("public/replist-bg.jpg");
+  // background-image: asset-data-url("replist-bg.jpg");
+  background-image: url(asset-path('replist-bg.jpg'));
+
+
   background-size: 100%;
 }
 
@@ -210,4 +214,14 @@ label {
 
 #description {
   color: black;
+}
+
+.navbar-brand {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-brand img {
+    max-height: 100%;
+    margin-left: 15%;
 }
