@@ -224,12 +224,15 @@ label {
   color: black;
 }
 
-.navbar-brand {
-    margin: 0;
-    padding: 0;
+.navbar-inverse {
+  background: none;
+  border: none;
 }
 
-.navbar-brand img {
-    max-height: 100%;
-    margin-left: 15%;
+.navbar-right a {
+  color: #EBEDF1 !important;
+}
+
+.navbar-header a {
+  color: #EBEDF1 !important;
 }
