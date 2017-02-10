@@ -132,14 +132,11 @@
 }
 
 body {
-  // background-image: url("public/replist-bg.jpg");
-  // background-image: asset-data-url("replist-bg.jpg");
-  background-image: url(asset-path('replist-bg.jpg'));
-
-
-  background-size: cover;
-  background-repeat: no-repeat;
-
+    background: url('replist-bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
 html {
@@ -234,5 +231,20 @@ label {
 }
 
 .navbar-header a {
+  font-size: 17px;
+  font-weight: bold;
   color: #EBEDF1 !important;
+}
+
+.navbar-header a:hover {
+  color: silver !important;
+}
+
+.navbar-collapse li a {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.navbar-collapse li a:hover {
+  color: silver !important;
 }
