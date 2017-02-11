@@ -82,11 +82,6 @@
   text-align: center;
 }
 
-.row {
-  text-align: center;
-  margin-left: 25%;
-}
-
 .new-piece-button {
   text-align: right;
 }
@@ -96,7 +91,7 @@
 }
 
 #bottom-border {
-  border-bottom: black ridge 5px;
+  border-bottom: #EBEDF1 ridge 5px;
   width: 50%;
   margin:auto;
 }
@@ -121,6 +116,148 @@
   text-align: right;
 }
 
-#search-form {
-  height: 2.3em;
+.add-bottom {
+  margin-top: 0.09em;
+}
+
+#dashboard-header {
+  margin-bottom: 2.5%;
+  margin-top: 2.5%;
+  color: #EBEDF1;
+}
+
+body {
+    background: url('replist-bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.caption h3 {
+  color: #EBEDF1;
+}
+
+.caption p {
+  color: #EBEDF1;
+}
+
+.thumbnail {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.jumbotron {
+   background: rgb(200, 54, 54); /* This is for ie8 and below */
+   background: rgba(0, 0, 0, 0.5);
+   color: #EBEDF1;
+   margin-top: 8%;
+}
+
+p {
+  color: #EBEDF1;
+}
+
+h1, h2, h3 {
+  color: #EBEDF1;
+}
+
+table {
+  color: #EBEDF1;
+}
+
+.form-group {
+  color: #EBEDF1;
+}
+
+.col-md-push-2 {
+  position:absolute;
+  left:0;
+  width:100%;
+}
+
+.col-md-push-2 p {
+  text-align: center;
+}
+
+label {
+  color: #EBEDF1;
+}
+
+.well-lg p {
+  color: black;
+}
+
+.well-lg {
+  background-color: #EBEDF1;
+}
+
+.upload-container {
+  text-align: center;
+}
+
+.upload-container #file {
+  left:50%;
+  margin-left:43%;
+  width:200px;
+  margin-top: 3%;
+}
+
+#title {
+  color: black;
+}
+
+#description {
+  color: black;
+}
+
+.navbar-inverse {
+  background: none;
+  border: none;
+}
+
+.navbar-right a {
+  color: #EBEDF1 !important;
+}
+
+.navbar-header a {
+  font-size: 17px;
+  font-weight: bold;
+  color: #EBEDF1 !important;
+}
+
+.navbar-header a:hover {
+  color: silver !important;
+}
+
+.navbar-collapse li a {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.navbar-collapse li a:hover {
+  color: silver !important;
+}
+
+.testytesty {
+ text-align: right;
+}
+
+.testytesty .btn-primary {
+  margin-right: 15px;
+}
+
+#search {
+  height: 2.45em;
+  border-radius: 4px;
+  color: black;
+}
+
+.navbar-right li {
+  margin-top: 0.5px;
 }

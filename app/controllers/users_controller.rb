@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.where(email: params[:search])
-    #where columnname like
+    if params[:search]
+      @users = User.search(params[:search]).order("created_at DESC")
+    else
+      @users = User.all.order('created_at DESC')
+    end
   end
 
   def new
@@ -23,7 +26,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    require "pry"; binding.pry
     params.require(:user).permit(:id, :email, :password, :password_confirmation, :last_name, :first_name, :username)
   end
 

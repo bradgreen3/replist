@@ -1,45 +1,32 @@
-<nav class="navbar navbar-light" style="background-color: #dddddd;">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" rel="home" href="/" title="RepList">
-        <img style="height:200%; margin-top: -10px;"
-             src="/logo.png">
-      </a>
-
-      <%= form_tag(users_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
-        <%= submit_tag "Search", class: 'btn btn-default' %>
-      <% end %>
-
+      <a class="navbar-brand" href="/">Home</a>
     </div>
-
-    <ul class="nav navbar-nav navbar-right">
-      <% if params[:user_id] && User.find(params[:user_id]) == current_user && !YoutubeUser.exists?(user_id: current_user.id) %>
-        <li><%= link_to 'Authorize YouTube', '/auth/google_oauth2' %></li>
-      <% end %>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          <span class="glyphicon glyphicon-cog"></span>
-            <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-        <% if current_user %>
-          <li><%= link_to "Directory", user_dashboard_path(current_user) %></li>
-          <li role="separator" class="divider"></li>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="navbar-form navbar-left">
+        <%= form_tag(users_path, method: 'get') do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+        <%= submit_tag "Search", :name => nil, class: 'btn btn-default' %>
+        <% end %>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+      <% if current_user %>
+        <% if params[:user_id] && User.find(params[:user_id]) == current_user && !YoutubeUser.exists?(user_id: current_user.id) %>
+          <li><%= link_to 'YouTube Sync', '/auth/google_oauth2' %></li>
+        <% end %>
+          <li><%= link_to "Portfolio", user_dashboard_path(current_user) %></li>
           <li class="logout"><%= link_to "Logout", logout_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Create Account", new_user_path %></li>
-          <li role="separator" class="divider"></li>
           <li><%= link_to "Log In", login_path %></li>
-        </ul>
-        <% end %>
-      </li>
-    </ul>
+      </ul>
+      <% end %>
+    </div>
   </div>
 </nav>
