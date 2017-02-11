@@ -12,7 +12,7 @@
       <tbody>
         <% @users.each do |user| %>
         <tr>
-          <td><a href="/<%=user.username%>"><%=user.username%></a></td>
+          <td class="blue-link"><a href="/<%=user.username%>"><%=user.username%></a></td>
           <td><%=user.last_name%></td>
           <td><%=user.first_name%></td>
           <td><%=user.email%></td>
