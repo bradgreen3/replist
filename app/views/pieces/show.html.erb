@@ -40,18 +40,18 @@
           <%= @presenter.piece.composer_first %> <%= @presenter.piece.composer_last %>
         </div>
       </div>
-      <div class="row">
+      <div class="row testytesty">
         <!-- piece has no video added to it, user is on their own page, and they're NOT oauthed -->
         <% if nonauthed_user_vid(@presenter) %>
-        <p> Authorize your account with YouTube to upload a video </p>
+          <p style="color:#f92d27"> *Authorize your account with YouTube to upload a video </p>
         <% end %>
         <!-- if there is a video present, user is logged in, and they're NOT oauthed -->
         <% if nonauthed_user_other_vid(@presenter) %>
-        <p> Authorize your account with YouTube to like or dislike video </p>
+          <p style="color:#f92d27"> *Authorize your account with YouTube to like or dislike video </p>
         <% end %>
         <!-- piece has no video added to it, user is on their own page, and they're oauthed -->
         <% if authed_user_no_vid(@presenter) %>
-        <%= button_to 'Upload Video', new_user_piece_youtube_upload_path(current_user.id, @presenter.piece.id), form_class: "testytesty", method: :get, class: "btn btn-primary" %>
+          <%= button_to 'Upload Video', new_user_piece_youtube_upload_path(current_user.id, @presenter.piece.id), form_class: "testytesty", method: :get, class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
