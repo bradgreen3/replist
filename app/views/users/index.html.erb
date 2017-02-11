@@ -1,0 +1,24 @@
+<div class="container user-index">
+  <div class="row-fluid">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Last</th>
+          <th>First</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <td><a href="/<%=user.username%>"><%=user.username%></a></td>
+          <td><%=user.last_name%></td>
+          <td><%=user.first_name%></td>
+          <td><%=user.email%></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
