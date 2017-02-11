@@ -1,4 +1,4 @@
-.repheader {
+E4E5E7.repheader {
   padding-left: 19em;
   padding-bottom: 1em;
 }
@@ -91,7 +91,7 @@
 }
 
 #bottom-border {
-  border-bottom: #EBEDF1 ridge 5px;
+  border-bottom: white ridge 5px;
   width: 50%;
   margin:auto;
 }
@@ -123,7 +123,7 @@
 #dashboard-header {
   margin-bottom: 2.5%;
   margin-top: 2.5%;
-  color: #EBEDF1;
+  color: white;
 }
 
 body {
@@ -141,11 +141,11 @@ html {
 }
 
 .caption h3 {
-  color: #EBEDF1;
+  color: white;
 }
 
 .caption p {
-  color: #EBEDF1;
+  color: white;
 }
 
 .thumbnail {
@@ -155,24 +155,24 @@ html {
 .jumbotron {
    background: rgb(200, 54, 54); /* This is for ie8 and below */
    background: rgba(0, 0, 0, 0.5);
-   color: #EBEDF1;
+   color: white;
    margin-top: 8%;
 }
 
 p {
-  color: #EBEDF1;
+  color: white;
 }
 
 h1, h2, h3 {
-  color: #EBEDF1;
+  color: white;
 }
 
 table {
-  color: #EBEDF1;
+  color: white;
 }
 
 .form-group {
-  color: #EBEDF1;
+  color: white;
 }
 
 .col-md-push-2 {
@@ -186,7 +186,7 @@ table {
 }
 
 label {
-  color: #EBEDF1;
+  color: white;
 }
 
 .well-lg p {
@@ -194,7 +194,7 @@ label {
 }
 
 .well-lg {
-  background-color: #EBEDF1;
+  background-color: white;
 }
 
 .upload-container {
@@ -222,17 +222,17 @@ label {
 }
 
 .navbar-right a {
-  color: #EBEDF1 !important;
+  color: white !important;
 }
 
 .navbar-header a {
   font-size: 17px;
   font-weight: bold;
-  color: #EBEDF1 !important;
+  color: white !important;
 }
 
 .navbar-header a:hover {
-  color: silver !important;
+  color: white !important;
 }
 
 .navbar-collapse li a {
@@ -241,7 +241,7 @@ label {
 }
 
 .navbar-collapse li a:hover {
-  color: silver !important;
+  color: white !important;
 }
 
 .testytesty {
@@ -260,4 +260,8 @@ label {
 
 .navbar-right li {
   margin-top: 0.5px;
+}
+
+.user-index td a {
+  color: #4aa9f9;
 }
