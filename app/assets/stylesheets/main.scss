@@ -82,10 +82,10 @@
   text-align: center;
 }
 
-.row {
-  text-align: center;
-  margin-left: 25%;
-}
+// .row {
+//   text-align: center;
+//   margin-left: 25%;
+// }
 
 .new-piece-button {
   text-align: right;
@@ -247,4 +247,12 @@ label {
 
 .navbar-collapse li a:hover {
   color: silver !important;
+}
+
+.testytesty {
+ text-align: right;
+}
+
+.testytesty .btn-primary {
+  margin-right: 15px;
 }

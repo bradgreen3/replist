@@ -1,59 +1,60 @@
-<div class="col-md-3"></div>
-<div class="col-md-6">
-<% if @presenter.piece.yt_link != "" %>
-
-  <div class="youtube-player" data-id="<%=@presenter.piece.yt_uid%>"></div>
-  <div class="youtube-icons">
-    <%= link_to youtube_comments_path(:id => @presenter.piece.yt_uid), :method=> :get, class: "btn btn-default" do %>
-    <i class="glyphicon glyphicon-comment"></i>
-    <% end %>
-  <% end %>
-  <!-- if video exists, user is visiting their own page, and they're oauthed -->
-  <% if authed_user_vid(@presenter) %>
-    <%= link_to youtube_deletes_path(:yt_id => @presenter.piece.yt_uid,
-                                     :piece_id => @presenter.piece.id),
-                                     :method=> :post, class: "btn btn-default" do %>
-                                     <i class="glyphicon glyphicon-trash"></i>
-                                     <% end %>
-  <% end %>
-  <!-- if there is a video present, user is logged in, and they ARE oauthed -->
-  <% if authed_user_other_vid(@presenter) %>
-    <%= link_to youtube_likes_path(:id => @presenter.piece.yt_uid,
-                                   :vid_owner => @presenter.user.id,
-                                   :piece => @presenter.piece.id),
-                                   :method=> :post, class: "btn btn-default" do %>
-    <i class="glyphicon glyphicon-thumbs-up"></i>
-    <% end %>
-    <%= link_to youtube_dislikes_path(:id => @presenter.piece.yt_uid,
-                                   :vid_owner => @presenter.user.id,
-                                   :piece => @presenter.piece.id),
-                                   :method=> :post, class: "btn btn-default" do %>
-    <i class="glyphicon glyphicon-thumbs-down"></i>
-    <% end %>
-  <% end %>
-</div>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title"><%= @presenter.piece.title %></h3>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3"></div>
+     <div class="col-md-6">
+      <% if @presenter.piece.yt_link != "" %>
+        <div class="youtube-player" data-id="<%=@presenter.piece.yt_uid%>"></div>
+        <div class="youtube-icons">
+          <%= link_to youtube_comments_path(:id => @presenter.piece.yt_uid), :method=> :get, class: "btn btn-default" do %>
+          <i class="glyphicon glyphicon-comment"></i>
+          <% end %>
+        <% end %>
+        <!-- if video exists, user is visiting their own page, and they're oauthed -->
+        <% if authed_user_vid(@presenter) %>
+          <%= link_to youtube_deletes_path(:yt_id => @presenter.piece.yt_uid,
+                                           :piece_id => @presenter.piece.id),
+                                           :method=> :post, class: "btn btn-default" do %>
+                                           <i class="glyphicon glyphicon-trash"></i>
+                                           <% end %>
+        <% end %>
+        <!-- if there is a video present, user is logged in, and they ARE oauthed -->
+        <% if authed_user_other_vid(@presenter) %>
+          <%= link_to youtube_likes_path(:id => @presenter.piece.yt_uid,
+                                         :vid_owner => @presenter.user.id,
+                                         :piece => @presenter.piece.id),
+                                         :method=> :post, class: "btn btn-default" do %>
+          <i class="glyphicon glyphicon-thumbs-up"></i>
+          <% end %>
+          <%= link_to youtube_dislikes_path(:id => @presenter.piece.yt_uid,
+                                         :vid_owner => @presenter.user.id,
+                                         :piece => @presenter.piece.id),
+                                         :method=> :post, class: "btn btn-default" do %>
+          <i class="glyphicon glyphicon-thumbs-down"></i>
+          <% end %>
+        <% end %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @presenter.piece.title %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @presenter.piece.composer_first %> <%= @presenter.piece.composer_last %>
+        </div>
+      </div>
+      <div class="row">
+        <!-- piece has no video added to it, user is on their own page, and they're NOT oauthed -->
+        <% if nonauthed_user_vid(@presenter) %>
+        <p> Authorize your account with YouTube to upload a video </p>
+        <% end %>
+        <!-- if there is a video present, user is logged in, and they're NOT oauthed -->
+        <% if nonauthed_user_other_vid(@presenter) %>
+        <p> Authorize your account with YouTube to like or dislike video </p>
+        <% end %>
+        <!-- piece has no video added to it, user is on their own page, and they're oauthed -->
+        <% if authed_user_no_vid(@presenter) %>
+        <%= button_to 'Upload Video', new_user_piece_youtube_upload_path(current_user.id, @presenter.piece.id), form_class: "testytesty", method: :get, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
   </div>
-  <div class="panel-body">
-    <%= @presenter.piece.composer_first %> <%= @presenter.piece.composer_last %>
-  </div>
-</div>
-</div>
-<div class="col-md-3"></div>
-
-<div class="col-md-6 col-md-push-2">
-  <!-- piece has no video added to it, user is on their own page, and they're NOT oauthed -->
-  <% if nonauthed_user_vid(@presenter) %>
-  <p> Authorize your account with YouTube to upload a video </p>
-  <% end %>
-  <!-- if there is a video present, user is logged in, and they're NOT oauthed -->
-  <% if nonauthed_user_other_vid(@presenter) %>
-  <p> Authorize your account with YouTube to like or dislike video </p>
-  <% end %>
-  <!-- piece has no video added to it, user is on their own page, and they're oauthed -->
-  <% if authed_user_no_vid(@presenter) %>
-  <%= button_to 'Upload Video', new_user_piece_youtube_upload_path(current_user.id, @presenter.piece.id), method: :get, class: "btn btn-primary" %>
-  <% end %>
 </div>
