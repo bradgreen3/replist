@@ -1,5 +1,4 @@
-document.addEventListener("DOMContentLoaded",
-    function() {
+document.addEventListener("DOMContentLoaded", function() {
         var div, n,
             v = document.getElementsByClassName("youtube-player");
         for (n = 0; n < v.length; n++) {
