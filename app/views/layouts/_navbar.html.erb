@@ -24,7 +24,7 @@
           <li class="logout"><%= link_to "Logout", logout_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Create Account", new_user_path %></li>
-          <li><%= link_to "Log In", login_path %></li>
+          <li class="login"><%= link_to "Log In", login_path %></li>
       </ul>
       <% end %>
     </div>
