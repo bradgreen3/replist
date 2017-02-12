@@ -17,7 +17,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:index]
     resources :likes, only: [:create]
     resources :dislikes, only: [:create]
-    resources :deletes, only: [:create]
   end
 
   namespace :api do
