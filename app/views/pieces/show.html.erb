@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid pieces-show">
   <div class="row">
     <div class="col-md-3"></div>
      <div class="col-md-6">
@@ -11,11 +11,7 @@
         <% end %>
         <!-- if video exists, user is visiting their own page, and they're oauthed -->
         <% if authed_user_vid(@presenter) %>
-          <%= link_to youtube_deletes_path(:yt_id => @presenter.piece.yt_uid,
-                                           :piece_id => @presenter.piece.id),
-                                           :method=> :post, class: "btn btn-default" do %>
-                                           <i class="glyphicon glyphicon-trash"></i>
-                                           <% end %>
+          <button id="yt-del" class="btn btn-default" data-ytid="<%=@presenter.piece.yt_uid%>" data-pieceid="<%=@presenter.piece.id%>"><i class="glyphicon glyphicon-trash"></i></button>
         <% end %>
         <!-- if there is a video present, user is logged in, and they ARE oauthed -->
         <% if authed_user_other_vid(@presenter) %>
@@ -55,6 +51,5 @@
         <% end %>
       </div>
     </div>
-    <div class="col-md-3"></div>
-  </div>
+  <div class="col-md-3"></div>
 </div>

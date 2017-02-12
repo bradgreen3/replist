@@ -20,6 +20,12 @@ Rails.application.routes.draw do
     resources :deletes, only: [:create]
   end
 
+  namespace :api do
+    namespace :v1 do
+        post 'youtube/delete', to: 'youtube#delete'
+    end
+  end
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
