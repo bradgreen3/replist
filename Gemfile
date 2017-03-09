@@ -21,6 +21,8 @@ gem 'yt'
 gem 'omniauth-google-oauth2'
 gem 'rails-html-sanitizer'
 gem 'bootstrap_form'
+gem 'sprockets', '>= 3.0.0'
+gem 'sprockets-es6'
 
 group :development, :test do
   gem 'byebug', platform: :mri
