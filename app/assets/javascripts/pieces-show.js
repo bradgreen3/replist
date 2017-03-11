@@ -1,25 +1,52 @@
-function onFail(err) {
-  console.error(err)
+$('.pieces-show').ready(function() {
+  $('#yt-del').on('click', function() {
+    deleteVid();
+  })
+  $('#yt-like').on('click', function() {
+    likeVid();
+  })
+});
+
+function deleteVid() {
+  var ytid = $('#yt-del').data('ytid')
+  var pieceid = $('#yt-del').data('pieceid')
+  $.ajax({
+      method: 'DELETE',
+      url: '/api/v1/youtube/delete',
+      data: {ytid: ytid, pieceid: pieceid}
+    })
+  .done(clearScreen)
+  .then(flashSuccess('clear'))
+  .fail(onFail)
 }
 
-function flashSuccess() {
-  $('.pieces-show').prepend('<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Your video has been removed from YouTube. </div>')
+function likeVid() {
+  var ytid = $('#yt-like').data('ytid')
+  var pieceid = $('#yt-like').data('pieceid')
+  $.ajax({
+      method: 'PATCH',
+      url: '/api/v1/youtube/like',
+      data: {ytid: ytid, pieceid: pieceid}
+    })
+  .done(flashSuccess('like'))
+  .fail(onFail)
+}
+
+function clearScreen() {
   $('.youtube-player').remove();
   $('.youtube-icons .btn').remove();
-  var pathName = window.location.pathname
   $('.col-md-6').append(`<form class="testytesty" method="get" action="${pathName}/youtube_uploads/new"><input class="btn btn-primary" type="submit" value="Upload Video"></form>`)
 }
 
-$('.pieces-show').ready(function() {
-  $('#yt-del').on('click', function() {
-    var ytid = $('#yt-del').data('ytid')
-    var pieceid = $('#yt-del').data('pieceid')
-    $.ajax({
-        method: 'POST',
-        url: '/api/v1/youtube/delete',
-        data: {ytid: ytid, pieceid: pieceid}
-      })
-    .done(flashSuccess)
-    .fail(onFail)
-  })
-});
+function flashSuccess(method) {
+  var pathName = window.location.pathname
+  if (method == "clear") {
+    $('.pieces-show').prepend('<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Your video has been removed from YouTube. </div>')
+  } else {
+    $('.pieces-show').prepend('<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Video liked. </div>')
+  }
+}
+
+function onFail(err) {
+  console.error(err)
+}
