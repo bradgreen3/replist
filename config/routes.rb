@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+        get 'youtube/comments', to: 'youtube#comments'
         delete 'youtube/delete', to: 'youtube#destroy'
         patch 'youtube/like', to: 'youtube#like'
         patch 'youtube/dislike', to: 'youtube#dislike'

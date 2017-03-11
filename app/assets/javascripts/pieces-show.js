@@ -8,7 +8,28 @@ $('.pieces-show').ready(function() {
   $('#yt-dislike').on('click', function() {
     dislikeVid();
   })
+  $('#yt-comments').on('click', function() {
+    if ($('#yt-comments').data('status') == 'showing') {
+      clearComments();
+      $('#yt-comments').data('status', 'hiding');
+    } else {
+      fetchComments();
+      $('#yt-comments').data('status', 'showing');
+    };
+  });
 });
+
+function fetchComments() {
+  var ytid = $('#yt-comments').data('ytid')
+  $.ajax({
+      method: 'GET',
+      url: '/api/v1/youtube/comments',
+      data: {ytid: ytid},
+      success: function(data) {
+        populateComments(data);
+      }
+  })
+};
 
 function deleteVid() {
   var ytid = $('#yt-del').data('ytid')
@@ -25,11 +46,10 @@ function deleteVid() {
 
 function likeVid() {
   var ytid = $('#yt-like').data('ytid')
-  var pieceid = $('#yt-like').data('pieceid')
   $.ajax({
       method: 'PATCH',
       url: '/api/v1/youtube/like',
-      data: {ytid: ytid, pieceid: pieceid}
+      data: {ytid: ytid}
     })
   .done(flashSuccess('like'))
   .fail(onFail)
@@ -37,14 +57,26 @@ function likeVid() {
 
 function dislikeVid() {
   var ytid = $('#yt-dislike').data('ytid')
-  var pieceid = $('#yt-dislike').data('pieceid')
   $.ajax({
       method: 'PATCH',
       url: '/api/v1/youtube/dislike',
-      data: {ytid: ytid, pieceid: pieceid}
+      data: {ytid: ytid}
     })
   .done(flashSuccess('dislike'))
   .fail(onFail)
+}
+
+function populateComments(data) {
+  var comments = data
+  $('.comments').append(`<div class="panel-group"><h3>Top Comments:</h3><p>(reclick comment button to remove)</p>`)
+
+  comments.forEach(function(comment) {
+    $('.comments').append(`<div class="panel panel-default"><div class="panel-body">${comment}</div></div>`)
+  })
+}
+
+function clearComments() {
+  $('.comments').children().remove()
 }
 
 function clearScreen() {

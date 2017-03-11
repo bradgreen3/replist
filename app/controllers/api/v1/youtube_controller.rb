@@ -20,6 +20,11 @@ class Api::V1::YoutubeController < ApplicationController
     end
   end
 
+  def comments
+    @comments = YoutubeComments.all(params[:ytid])
+    render json: @comments
+  end
+
   def destroy
     @token = YoutubeUser.where(user_id: current_user.id).first.token
     deleted = YoutubeService.new(params[:ytid], @token).delete_video
