@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "a logged in authorized youtube user" do
   context "viewing their own video" do
-    it "can delete the video", :vcr do
+    xit "can delete the video", :vcr do
       user = stub_login_user
       YoutubeUser.create(user_id: user.id, token: ENV['token'], account_number: ENV['account_number'])
       piece = user.pieces.create(composer_first: "jacques", composer_last: "ibert", title: "concertino da camera", yt_link: "https://www.youtube.com/watch?v=g3c025V9zuM", yt_uid: "g3c025V9zuM")

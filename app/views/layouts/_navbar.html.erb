@@ -17,7 +17,7 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
-        <% if params[:user_id] && User.find(params[:user_id]) == current_user && !YoutubeUser.exists?(user_id: current_user.id) %>
+        <% if !YoutubeUser.exists?(user_id: current_user.id) %>
           <li><%= link_to 'YouTube Sync', '/auth/google_oauth2' %></li>
         <% end %>
           <li><%= link_to "Portfolio", user_dashboard_path(current_user) %></li>
