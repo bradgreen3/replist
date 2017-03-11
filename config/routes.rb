@@ -16,12 +16,6 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :youtube do
-    resources :comments, only: [:index]
-    resources :likes, only: [:create]
-    resources :dislikes, only: [:create]
-  end
-
   namespace :api do
     namespace :v1 do
         get 'youtube/comments', to: 'youtube#comments'

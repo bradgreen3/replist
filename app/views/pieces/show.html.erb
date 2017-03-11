@@ -5,13 +5,11 @@
       <% if @presenter.piece.yt_link != "" %>
         <div class="youtube-player" data-id="<%=@presenter.piece.yt_uid%>"></div>
         <div class="youtube-icons">
-
           <button id="yt-comments" class="btn btn-default"
                                    data-ytid="<%=@presenter.piece.yt_uid%>"
                                    data-status="hiding">
                                    <i class="glyphicon glyphicon-comment"></i>
           </button>
-
         <% end %>
         <!-- if video exists, user is visiting their own page, and they're oauthed -->
         <% if authed_user_vid(@presenter) %>
