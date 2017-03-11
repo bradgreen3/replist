@@ -10,6 +10,16 @@ class Api::V1::YoutubeController < ApplicationController
     end
   end
 
+  def dislike
+    @token = YoutubeUser.where(user_id: current_user.id).first.token
+    disliked = YoutubeService.new(params[:ytid], @token).dislike_video
+    if disliked == true
+      render json: Piece.find(params[:pieceid])
+    else
+      render json: "Video cannot be disliked".to_json, status: 400
+    end
+  end
+
   def destroy
     @token = YoutubeUser.where(user_id: current_user.id).first.token
     deleted = YoutubeService.new(params[:ytid], @token).delete_video

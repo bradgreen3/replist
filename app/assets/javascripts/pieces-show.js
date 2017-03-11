@@ -5,6 +5,9 @@ $('.pieces-show').ready(function() {
   $('#yt-like').on('click', function() {
     likeVid();
   })
+  $('#yt-dislike').on('click', function() {
+    dislikeVid();
+  })
 });
 
 function deleteVid() {
@@ -32,6 +35,18 @@ function likeVid() {
   .fail(onFail)
 }
 
+function dislikeVid() {
+  var ytid = $('#yt-dislike').data('ytid')
+  var pieceid = $('#yt-dislike').data('pieceid')
+  $.ajax({
+      method: 'PATCH',
+      url: '/api/v1/youtube/dislike',
+      data: {ytid: ytid, pieceid: pieceid}
+    })
+  .done(flashSuccess('dislike'))
+  .fail(onFail)
+}
+
 function clearScreen() {
   $('.youtube-player').remove();
   $('.youtube-icons .btn').remove();
@@ -42,8 +57,10 @@ function flashSuccess(method) {
   var pathName = window.location.pathname
   if (method == "clear") {
     $('.pieces-show').prepend('<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Your video has been removed from YouTube. </div>')
-  } else {
+  } else if (method == "like") {
     $('.pieces-show').prepend('<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Video liked. </div>')
+  } else {
+    $('.pieces-show').prepend('<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Video disliked. </div>')
   }
 }
 

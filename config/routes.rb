@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     namespace :v1 do
         delete 'youtube/delete', to: 'youtube#destroy'
         patch 'youtube/like', to: 'youtube#like'
+        patch 'youtube/dislike', to: 'youtube#dislike'
     end
   end
 

@@ -24,12 +24,11 @@
                                data-pieceid="<%=@presenter.piece.id%>">
                                <i class="glyphicon glyphicon-thumbs-up"></i>
           </button>
-          <%= link_to youtube_dislikes_path(:id => @presenter.piece.yt_uid,
-                                         :vid_owner => @presenter.user.id,
-                                         :piece => @presenter.piece.id),
-                                         :method=> :post, class: "btn btn-default" do %>
-          <i class="glyphicon glyphicon-thumbs-down"></i>
-          <% end %>
+          <button id="yt-dislike" class="btn btn-default"
+                               data-ytid="<%=@presenter.piece.yt_uid%>"
+                               data-pieceid="<%=@presenter.piece.id%>">
+                               <i class="glyphicon glyphicon-thumbs-down"></i>
+          </button>
         <% end %>
       <div class="panel panel-default">
         <div class="panel-heading">
