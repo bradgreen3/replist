@@ -1,3 +1,5 @@
+require 'uri'
+
 class Piece < ApplicationRecord
   has_many :performance_pieces
   has_many :performances, through: :performance_pieces
@@ -12,8 +14,9 @@ class Piece < ApplicationRecord
 
   def get_uid
     if self.yt_link != ""
-      video = Yt::Video.new url: self.yt_link
-      self.yt_uid = video.id
+      query_string = URI.parse(self.yt_link).query
+      parameters = Hash[URI.decode_www_form(query_string)]
+      self.yt_uid = parameters['v']
     end
   end
 

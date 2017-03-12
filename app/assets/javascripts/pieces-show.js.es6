@@ -1,5 +1,4 @@
 $('.pieces-show').ready(function() {
-  console.log("JS is loading")
   $('#yt-del').on('click', function() {
     deleteVid();
   })
