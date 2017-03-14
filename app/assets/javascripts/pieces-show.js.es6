@@ -90,12 +90,19 @@ function clearScreen() {
 function flashSuccess(method) {
   var pathName = window.location.pathname
   if (method == "clear") {
+    clearFlash();
     $('.pieces-show').prepend('<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Your video has been removed from YouTube. </div>')
   } else if (method == "like") {
+    clearFlash();
     $('.pieces-show').prepend('<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Video liked. </div>')
   } else {
+    clearFlash();
     $('.pieces-show').prepend('<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Video disliked. </div>')
   }
+}
+
+function clearFlash() {
+  $('.alert.alert-success.alert-dismissable').remove()
 }
 
 function onFail(err) {
