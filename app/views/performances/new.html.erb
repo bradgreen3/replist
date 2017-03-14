@@ -1,19 +1,29 @@
 <h2 class="text-center">New Performance</h2>
-<br>
-<div class="col-md-4, col-md-push-4">
-<%= form_for [@user, @performance] do |f| %>
 
-  <%= f.label "Title" %>
-  <%= f.text_field :title, placeholder: "Title" %>
+<div class="col-md-4"></div>
 
-  <%= f.label "Date" %>
-  <%= f.date_select :date %>
+<div class="col-md-4">
+  <%= form_for [@user, @performance] do |f| %>
 
-  <div class="center-me">
-    <%= f.submit "Add Performance", class: "update-btn" %>
-  </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Title</label>
+      <div class="col-10">
+        <%= f.text_field :title, placeholder: "e.g. Senior Recital", class: "form-control" %>
+      </div>
+    </div>
 
-<% end %>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Date</label>
+      <div class="col-10">
+        <%= f.text_field :date, class: "form-control", type: "date", value: "#{Date.today.to_s}" %>
+      </div>
+    </div>
 
+    <div class="center-me">
+      <%= f.submit "Add Performance", class: "update-btn" %>
+    </div>
+
+  <% end %>
 </div>
-<div class="col-md-3.5"></div>
+
+<div class="col-md-4"></div>
