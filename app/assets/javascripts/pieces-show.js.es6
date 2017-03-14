@@ -82,20 +82,27 @@ function clearComments() {
 }
 
 function clearScreen() {
+  var pathName = window.location.pathname
   $('.youtube-player').remove();
   $('.youtube-icons .btn').remove();
-  $('.col-md-6').append(`<form class="testytesty" method="get" action="${pathName}/youtube_uploads/new"><input class="btn btn-primary" type="submit" value="Upload Video"></form>`)
+  $('.center-center').append(`<form class="testytesty" method="get" action="${pathName}/youtube_uploads/new"><input class="btn btn-primary" type="submit" value="Upload Video"></form>`)
 }
 
 function flashSuccess(method) {
-  var pathName = window.location.pathname
   if (method == "clear") {
+    clearFlash();
     $('.pieces-show').prepend('<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Your video has been removed from YouTube. </div>')
   } else if (method == "like") {
+    clearFlash();
     $('.pieces-show').prepend('<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Video liked. </div>')
   } else {
+    clearFlash();
     $('.pieces-show').prepend('<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Video disliked. </div>')
   }
+}
+
+function clearFlash() {
+  $('.alert.alert-success.alert-dismissable').remove()
 }
 
 function onFail(err) {

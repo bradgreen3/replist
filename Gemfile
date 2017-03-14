@@ -23,6 +23,7 @@ gem 'rails-html-sanitizer'
 gem 'bootstrap_form'
 gem 'sprockets', '>= 3.0.0'
 gem 'sprockets-es6'
+gem 'rest-client'
 
 group :development, :test do
   gem 'byebug', platform: :mri
