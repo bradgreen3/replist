@@ -38,6 +38,16 @@ class YoutubeService
     false
   end
 
+  def on_yt?
+    begin
+      false if video.empty?
+    rescue
+      false
+    else
+      true
+    end
+  end
+
   private
 
   attr_reader :account, :video, :id, :token

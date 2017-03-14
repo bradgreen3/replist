@@ -1,4 +1,6 @@
 class PiecesController < ApplicationController
+  before_action :check_yt, :only => :show
+
   def index
     @user = User.find(params[:user_id])
     @yt_users = YoutubeUser.all
@@ -53,6 +55,14 @@ class PiecesController < ApplicationController
 
   def piece_params
     params.require(:piece).permit(:composer_last, :composer_first, :title, :yt_link)
+  end
+
+  def check_yt
+    piece = Piece.find(params[:id])
+    user = YoutubeUser.find_by(user_id: current_user)
+    unless piece.yt_uid == ""
+      piece.update_attributes(yt_uid: "", yt_link: "") if YoutubeService.new(piece.yt_uid, user.token).on_yt? == false
+    end
   end
 
 end
