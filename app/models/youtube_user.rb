@@ -5,14 +5,14 @@ class YoutubeUser < ApplicationRecord
   def refresh_token_if_expired
     if token_expired?
       response    = RestClient.post "https://www.googleapis.com/oauth2/v4/token", :grant_type => 'refresh_token', :refresh_token => self.refresh_token, :client_id => ENV['youtube_id'], :client_secret => ENV['youtube_secret']
-      refreshhash = JSON.parse(response.body)
+      refresh_response = JSON.parse(response.body)
 
       token_will_change!
       expires_at_will_change!
 
-      self.token     = refreshhash['access_token']
-      self.expires_at = DateTime.now + refreshhash["expires_in"].to_i.seconds
-      
+      self.token      = refresh_response['access_token']
+      self.expires_at = DateTime.now + refresh_response["expires_in"].to_i.seconds
+
       self.save
     end
   end
