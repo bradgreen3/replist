@@ -90,12 +90,6 @@
   text-align: center;
 }
 
-#bottom-border {
-  border-bottom: white ridge 5px;
-  width: 50%;
-  margin:auto;
-}
-
 .panel-default {
   margin-top: 1%;
 }
@@ -272,6 +266,10 @@ label {
 
 .login a {
   color: #27bc27 !important;
+}
+
+#login-header {
+  margin-bottom: 1.5em;
 }
 
 .has-error .control-label,

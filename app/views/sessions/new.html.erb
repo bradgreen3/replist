@@ -1,21 +1,23 @@
-<div id="bottom-border">
-<h2 class="text-center">Login To Your Account</h2>
-</div>
+<h2 class="text-center" id="login-header">Login To Your Account</h2>
 
-<div class="col-md-3"></div>
-<div class="col-md-6">
-  <div class="login-form">
+<div class="col-md-4"></div>
+
+<div class="col-md-4">
   <%= bootstrap_form_tag url: "/login" do %>
-    <%= label_tag :email %>
-    <%= text_field :email, nil, placeholder: "Email" %>
+    <div class="form-group">
+      <%= label_tag :email %>
+      <%= text_field :email, nil, class: "form-control" %>
+    </div>
 
-    <%= label_tag :password %>
-    <%= password_field_tag :password, nil, placeholder: "Password" %>
+    <div class="form-group">
+      <%= label_tag :password %>
+      <%= password_field_tag :password, nil, class: "form-control" %>
+    </div>
 
     <div class="center-me">
     <%= submit_tag "Login" %>
     </div>
-
   <% end %>
-  </div>
-<div class="col-md-3"></div>
+</div>
+
+<div class="col-md-4"></div>
