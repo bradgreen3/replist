@@ -4,13 +4,13 @@
 <div class="col-md-4" id: "shrink-me">
 
 <%= bootstrap_form_for [@user, @piece] do |f| %>
-  <%= f.text_field :composer_last, placeholder: "Composer's Last" %>
+  <%= f.text_field :composer_last, placeholder: "e.g. Ibert" %>
 
-  <%= f.text_field :composer_first, placeholder: "Composer's First" %>
+  <%= f.text_field :composer_first, placeholder: "e.g. Jacques" %>
 
-  <%= f.text_field :title, placeholder: "Title of Piece" %>
+  <%= f.text_field :title, placeholder: "e.g. Concertino da Camera" %>
 
-  <%= f.text_field :yt_link, placeholder: "YouTube URL" %>
+  <%= f.text_field :yt_link, label: "Link (if video already exists on YouTube)", placeholder: "e.g. https://www.youtube.com/watch?v=H7iJIp_C32A" %>
 
   <div class="center-me">
     <%= f.submit "Add Piece", class: "update-btn" %>
