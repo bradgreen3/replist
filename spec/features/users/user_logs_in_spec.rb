@@ -7,7 +7,7 @@ describe "when a user goes to login page" do
 
       visit "/login"
 
-      fill_in "Email", with: "test@test.com"
+      fill_in "email[]", with: "test@test.com"
       fill_in "Password", with: "pass"
 
       click_on "Login"
@@ -23,7 +23,7 @@ describe "when a user goes to login page" do
 
       visit "/login"
 
-      fill_in "Email", with: "brad@test.com"
+      fill_in "email[]", with: "brad@test.com"
       fill_in "Password", with: "wrongpassword"
 
       click_on "Login"

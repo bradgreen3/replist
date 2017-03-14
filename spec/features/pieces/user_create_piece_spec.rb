@@ -17,9 +17,9 @@ describe "a logged in user" do
 
       expect(current_path).to eq(new_user_piece_path(user))
 
-      fill_in "Composer's Last", with: "Ibert"
-      fill_in "Composer's First", with: "Jacques"
-      fill_in "Title of Piece", with: "Concertino da Camera"
+      fill_in "piece[composer_last]", with: "Ibert"
+      fill_in "piece[composer_first]", with: "Jacques"
+      fill_in "piece[title]", with: "Concertino da Camera"
 
       click_button "Add Piece"
 
@@ -46,10 +46,10 @@ describe "a logged in user" do
 
       expect(current_path).to eq(new_user_piece_path(user))
 
-      fill_in "Composer's Last", with: "Ibert"
-      fill_in "Composer's First", with: "Jacques"
-      fill_in "Title of Piece", with: "Concertino da Camera"
-      fill_in "YouTube URL", with: "notvalidurl"
+      fill_in "piece[composer_last]", with: "Ibert"
+      fill_in "piece[composer_first]", with: "Jacques"
+      fill_in "piece[title]", with: "Concertino da Camera"
+      fill_in "piece[yt_link]", with: "notvalidurl"
 
       click_button "Add Piece"
 

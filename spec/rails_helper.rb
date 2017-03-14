@@ -76,7 +76,7 @@ end
 def stub_login_user
   user = User.create(email: "brad@test.com", username: "testuser", password: "pass", first_name: "Brad", last_name: "Green")
   visit "/login"
-  fill_in "Email", with: "brad@test.com"
+  fill_in "email[]", with: "brad@test.com"
   fill_in "Password", with: "pass"
   click_button "Login"
   user
