@@ -273,3 +273,16 @@ label {
 .login a {
   color: #27bc27 !important;
 }
+
+.has-error .control-label,
+.has-error .help-block {
+    color: #f92d27;
+}
+
+.rails-bootstrap-forms-error-summary {
+  color: #f92d27;
+}
+
+.alert-danger p {
+  color: black;
+}
