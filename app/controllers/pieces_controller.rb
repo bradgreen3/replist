@@ -60,8 +60,8 @@ class PiecesController < ApplicationController
   def check_yt
     piece = Piece.find(params[:id])
     user = YoutubeUser.find_by(user_id: params["user_id"].to_i)
-    if piece.yt_uid != "" && piece.yt_uid != nil && user != nil
-      piece.update_attributes(yt_uid: "", yt_link: "") if YoutubeService.new(piece.yt_uid, user.token).on_yt? == false
+    if piece.yt_uid != "" && piece.yt_uid != nil && user != nil || (piece.yt_uid == nil && piece.yt_link != nil)
+      piece.update_attributes(yt_uid: "", yt_link: "") if YoutubeService.new(piece.yt_uid, user.token).on_yt? == false      
     end
   end
 
