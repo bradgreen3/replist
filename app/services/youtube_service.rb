@@ -38,8 +38,9 @@ class YoutubeService
     false
   end
 
-  def on_yt?
+  def self.on_yt?(id)
     begin
+      video = Yt::Video.new(id: id)
       false if video.empty?
     rescue
       false
