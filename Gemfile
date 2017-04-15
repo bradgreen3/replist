@@ -43,7 +43,6 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'poltergeist'
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
-  gem 'selenium-webdriver'
 end
 
 group :development do

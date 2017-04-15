@@ -17,13 +17,6 @@ class YoutubeService
                          description: params[:description]
   end
 
-  def get_comments
-    Rails.cache.fetch(id, :expires => 60.minutes) do
-      video = Yt::Video.new(id: id)
-      video.comment_threads.take(10).map(&:text_display)
-    end
-  end
-
   def like_video
     video.like
   end
@@ -36,6 +29,13 @@ class YoutubeService
     video.delete
   rescue
     false
+  end
+
+  def self.get_comments(id)
+    Rails.cache.fetch(id, :expires => 60.minutes) do
+      video = Yt::Video.new(id: id)
+      video.comment_threads.take(10).map(&:text_display)
+    end
   end
 
   def self.on_yt?(id)

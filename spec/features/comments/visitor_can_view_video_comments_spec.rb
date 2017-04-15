@@ -9,8 +9,9 @@ describe "as a visitor", js: :true do
 
       visit user_piece_path(user, piece)
 
-      expect(current_path).to eq(youtube_comments_path)
-      expect(page).to have_content(YoutubeComments.all(id).first)
+      find(:css, '#yt-comments').click
+
+      expect(page).to have_content("Best Ibert I heard since Marcel Mule!﻿")
     end
   end
 end
