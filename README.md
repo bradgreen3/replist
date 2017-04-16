@@ -19,6 +19,11 @@
 * rails s
 * visit localhost:3000
 
+### Contributing
+
+* Pull requests are accepted!
+* Assign yourself issues: https://waffle.io/bradgreen3/replist
+
 ### Run Test Suite
 
 * rspec
