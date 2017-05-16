@@ -61,6 +61,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    cliver (0.3.2)
     coderay (1.1.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -129,6 +130,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     netrc (0.11.0)
+    newrelic_rpm (4.1.0.333)
     nio4r (2.0.0)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
@@ -150,6 +152,11 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     pg (0.20.0)
+    phantomjs (2.1.1.0)
+    poltergeist (1.14.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -289,8 +296,12 @@ DEPENDENCIES
   jquery-rails
   launchy
   listen (~> 3.0.5)
+  newrelic_rpm
+  nokogiri
   omniauth-google-oauth2
   pg (~> 0.18)
+  phantomjs
+  poltergeist
   pry
   puma (~> 3.0)
   rails (~> 5.0.1)
@@ -312,4 +323,4 @@ DEPENDENCIES
   yt
 
 BUNDLED WITH
-   1.13.7
+   1.14.6

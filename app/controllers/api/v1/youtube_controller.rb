@@ -1,5 +1,5 @@
 class Api::V1::YoutubeController < ApplicationController
-  before_action :check_token
+  before_action :check_token, only: [:like, :dislike, :destroy]
 
   def like
     @token = YoutubeUser.find_by(user_id: current_user.id).token

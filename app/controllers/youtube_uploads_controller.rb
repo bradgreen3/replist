@@ -1,5 +1,7 @@
 class YoutubeUploadsController < ApplicationController
 
+  before_action :check_token, only: [:new]
+
   def new
     @piece = Piece.find(params[:piece_id])
   end
@@ -15,6 +17,12 @@ class YoutubeUploadsController < ApplicationController
       flash[:success] = 'Your video has been uploaded!'
     end
     redirect_to user_piece_path(current_user, @piece)
+  end
+
+  private
+
+  def check_token
+    YoutubeUser.find_by(user_id: current_user).refresh_token_if_expired
   end
 
 end

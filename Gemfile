@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.0.1'
+gem 'nokogiri'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -24,6 +25,7 @@ gem 'bootstrap_form'
 gem 'sprockets', '>= 3.0.0'
 gem 'sprockets-es6'
 gem 'rest-client'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -40,6 +42,8 @@ group :development, :test do
   gem 'coolline'
   gem 'faker'
   gem 'shoulda-matchers'
+  gem 'poltergeist'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
 end
 
 group :development do
